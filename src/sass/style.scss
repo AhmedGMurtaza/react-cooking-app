@@ -1,0 +1,132 @@
+
+// VARIABLES
+$color-dark: #000000;
+$color-light: #eaeaea;
+$body-banner: #272727;
+$color-menu: #ffa500;
+$color-success: #2db938;
+// STYLES
+body{
+    background:$color-light;
+    font-family: verdana;
+    margin:0;
+}
+
+.container{
+    width: 980px;
+    margin:0 auto;
+}
+
+.header{
+    width:100%;
+    height:150px;
+    img{
+        height: inherit;
+        width:inherit;
+    }
+}
+
+.menu{
+    background:$color-menu;
+    padding:0;
+    margin: 0;
+    li{
+        list-style: none;        
+        display: inline-block;
+        a{
+            text-decoration: none;
+            color:$color-dark;
+            padding: 12px;
+            display: block;
+            font-size: 16px;
+            &:hover{
+                background: darken($color-menu,5%);
+            }            
+        }
+    }
+}
+
+
+.insert-recipe{
+    display: flex;
+    flex-direction: row-reverse;
+    background:rgb(47, 179, 240);
+    padding:10px;
+    h2{
+        font-size:22px;
+        margin:0 0 10px 0;
+    }
+    form{
+        margin-top:10px;
+        width:50%;
+        color: #ffffff;
+        label{
+            margin: 5px 0;
+            display: block;
+            font-size:14px;
+        }
+        input,
+        textarea,
+        button{
+            box-sizing: border-box;
+            border:0;
+            border-radius:3px;
+            display: block;
+            padding:10px 5px;
+            width:100%;
+            margin-bottom:10px;
+        }
+        .btn-success{
+            cursor:pointer;
+            color: #ffffff;
+            background:$color-success;
+            &:hover{
+                background:darken($color-success,10%);
+            }
+        }
+        .dv-star-rating{
+            margin-top:-15px;
+        }
+        i{
+            font-size:30px !important;
+        }
+    }
+}
+
+.recipes-box{
+    display: flex;
+    justify-content: space-between;
+    .recipe{
+        &-box{
+            flex:1;
+            background: #ffffff;
+            padding:10px;
+            box-shadow:2px 2px 2px #eaeaea;
+            margin:5px;
+            min-height: 100px;
+            border-radius:3px;
+            width: 22%;
+        }
+        &-title{
+            font-size:16px;
+            margin:0;
+        }
+        &-category{
+            background:$color-menu;
+            padding:2px 3px;
+            border-radius:3px;
+            font-size:11px;
+            color:#ffffff;
+            margin-bottom:5px 0 20px 0;
+        }
+        &-description{
+            font-size:12px;
+        }
+    }
+}
+
+footer{
+    border:1px solid red;
+}
+
+// Star Ratings

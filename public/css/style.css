@@ -1,0 +1,96 @@
+body {
+  background: #eaeaea;
+  font-family: verdana;
+  margin: 0; }
+
+.container {
+  width: 980px;
+  margin: 0 auto; }
+
+.header {
+  width: 100%;
+  height: 150px; }
+  .header img {
+    height: inherit;
+    width: inherit; }
+
+.menu {
+  background: #ffa500;
+  padding: 0;
+  margin: 0; }
+  .menu li {
+    list-style: none;
+    display: inline-block; }
+    .menu li a {
+      text-decoration: none;
+      color: #000000;
+      padding: 12px;
+      display: block;
+      font-size: 16px; }
+      .menu li a:hover {
+        background: #e69500; }
+
+.insert-recipe {
+  display: flex;
+  flex-direction: row-reverse;
+  background: #2fb3f0;
+  padding: 10px; }
+  .insert-recipe h2 {
+    font-size: 22px;
+    margin: 0 0 10px 0; }
+  .insert-recipe form {
+    margin-top: 10px;
+    width: 50%;
+    color: #ffffff; }
+    .insert-recipe form label {
+      margin: 5px 0;
+      display: block;
+      font-size: 14px; }
+    .insert-recipe form input,
+    .insert-recipe form textarea,
+    .insert-recipe form button {
+      box-sizing: border-box;
+      border: 0;
+      border-radius: 3px;
+      display: block;
+      padding: 10px 5px;
+      width: 100%;
+      margin-bottom: 10px; }
+    .insert-recipe form .btn-success {
+      cursor: pointer;
+      color: #ffffff;
+      background: #2db938; }
+      .insert-recipe form .btn-success:hover {
+        background: #23902c; }
+    .insert-recipe form .dv-star-rating {
+      margin-top: -15px; }
+    .insert-recipe form i {
+      font-size: 30px !important; }
+
+.recipes-box {
+  display: flex;
+  justify-content: space-between; }
+  .recipes-box .recipe-box {
+    flex: 1;
+    background: #ffffff;
+    padding: 10px;
+    box-shadow: 2px 2px 2px #eaeaea;
+    margin: 5px;
+    min-height: 100px;
+    border-radius: 3px;
+    width: 22%; }
+  .recipes-box .recipe-title {
+    font-size: 16px;
+    margin: 0; }
+  .recipes-box .recipe-category {
+    background: #ffa500;
+    padding: 2px 3px;
+    border-radius: 3px;
+    font-size: 11px;
+    color: #ffffff;
+    margin-bottom: 5px 0 20px 0; }
+  .recipes-box .recipe-description {
+    font-size: 12px; }
+
+footer {
+  border: 1px solid red; }
