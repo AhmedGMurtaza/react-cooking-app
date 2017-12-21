@@ -8,51 +8,80 @@ class CookingApp extends Component {
     this.state = {
       recipes: [],
       loading:true,
-      rating: 3
+      rating: 3,
+      menu: []
     }
   }
 
   onStarClick(nextValue, prevValue, name) {
     this.setState({rating: nextValue});
-}
+  }
 
-componentDidMount(){
-    fetch('https://api.myjson.com/bins/gg3eh')
-    .then((response)=>{
-      return response.json()
-    })
-    .then((json)=>{
-      const menu = json.recipes.map((item)=>item.category);
+  componentDidMount(){
+    if(localStorage.getItem('recipes')){
+      let recipesData = JSON.parse(localStorage.getItem('recipes'));
+      let menu = recipesData.map(menuItem=>menuItem.category);
       this.setState({
-        recipes:json,
+        recipes: recipesData,
         loading:false,
         menu
       });
-    })
-    
+    }
+    else{
+      fetch('https://api.myjson.com/bins/gg3eh')
+      .then((response)=>{
+        return response.json()
+      })
+      .then((json)=>{
+        let menu = json.recipes.map(menuItem=>menuItem.category);
+        this.setState({
+          recipes:json,
+          loading:false,
+          menu
+        });
+        let recipes = JSON.stringify(this.state.recipes);
+        localStorage.setItem('recipes',recipes);
+      })
+    }
   }
 
-  validate = () => {}
-  handleClick = () => {
+  validate = (formValues) => {
+    if(formValues.title.length < 3){
+      alert('Title must be atleast 3 letters')
+      return null;
+    }
+    else if(formValues.category.length < 3){
+      alert('Category must be atleast 3 letters')
+      return null;
+    }
+    else if(formValues.description.length < 10){
+      alert('Description must be atleast 10 letters')
+      return null;
+    }
+    return formValues;
+  }
+  
+  handleClick = (e) => {
     const formValues = {
       title: this.title.value,
       category: this.category.value,
       description: this.description.value,
       rating:this.state.rating,
-      recipeId:27
+      recipeId:this.state.recipes.length + 1 
     };
 
-    if(formValues.validate()){
-      const updatedRecipies = [...this.state.recipes,formValues];
-      localStorage.setItem('recipes',updatedRecipies);
-  
+    if(this.validate(formValues)){
+      let updatedRecipes = [...this.state.recipes,formValues];
+      console.log(updatedRecipes);
+      updatedRecipes = JSON.stringify(updatedRecipes);
+      localStorage.setItem('recipes',updatedRecipes);
     }
-
   }
+
   render() {
     const { recipes, loading, menu, rating } = this.state;
     if(loading){
-      return <h4>loading.. </h4>
+      return <h4 className="loading_indicator">Loading Recipes.. </h4>
     }
     else{
       return (
@@ -91,7 +120,7 @@ componentDidMount(){
           <h2>Featured Recipes</h2>
           <div className="recipes-box">
             {
-              recipes.recipes.map((item,value) => (
+              recipes.map((item,value) => (
                 <Recipe 
                   key={value} 
                   title={item.title} 
@@ -123,8 +152,3 @@ const Recipe = (item) =>{
     </div>
   );
 };
-
-// const Rating = () => {
-//   return(
-//   );
-// }

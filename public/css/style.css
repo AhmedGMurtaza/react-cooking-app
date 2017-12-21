@@ -7,6 +7,10 @@ body {
   width: 980px;
   margin: 0 auto; }
 
+.loading_indicator {
+  display: block;
+  text-align: center; }
+
 .header {
   width: 100%;
   height: 150px; }
@@ -41,7 +45,7 @@ body {
   .insert-recipe form {
     margin-top: 10px;
     width: 50%;
-    color: #ffffff; }
+    color: white; }
     .insert-recipe form label {
       margin: 5px 0;
       display: block;
@@ -58,7 +62,7 @@ body {
       margin-bottom: 10px; }
     .insert-recipe form .btn-success {
       cursor: pointer;
-      color: #ffffff;
+      color: white;
       background: #2db938; }
       .insert-recipe form .btn-success:hover {
         background: #23902c; }
@@ -69,13 +73,15 @@ body {
 
 .recipes-box {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  flex-wrap: wrap; }
   .recipes-box .recipe-box {
     flex: 1;
-    background: #ffffff;
+    background: white;
     padding: 10px;
     box-shadow: 2px 2px 2px #eaeaea;
     margin: 5px;
+    min-width: 25%;
     min-height: 100px;
     border-radius: 3px;
     width: 22%; }
@@ -87,10 +93,7 @@ body {
     padding: 2px 3px;
     border-radius: 3px;
     font-size: 11px;
-    color: #ffffff;
+    color: white;
     margin-bottom: 5px 0 20px 0; }
   .recipes-box .recipe-description {
     font-size: 12px; }
-
-footer {
-  border: 1px solid red; }
